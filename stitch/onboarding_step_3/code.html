@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura — Add Your First Step</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#efeeeb",
+                        "primary": "#3525cd",
+                        "inverse-on-surface": "#f2f1ee",
+                        "on-background": "#1b1c1a",
+                        "secondary-container": "#b6b4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e9e8e5",
+                        "background": "#faf9f6",
+                        "on-primary-container": "#dad7ff",
+                        "outline": "#777587",
+                        "surface-dim": "#dbdad7",
+                        "inverse-surface": "#2f312f",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c7c4d8",
+                        "surface-bright": "#faf9f6",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#e2dfff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "surface-container-highest": "#e3e2df",
+                        "inverse-primary": "#c3c0ff",
+                        "surface": "#faf9f6",
+                        "on-surface-variant": "#464555",
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-container": "#454386",
+                        "primary-container": "#4f46e5",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e3e2df",
+                        "tertiary": "#7e3000",
+                        "surface-container-low": "#f4f3f0",
+                        "surface-tint": "#4d44e3",
+                        "on-surface": "#1b1c1a",
+                        "on-secondary-fixed": "#140f54",
+                        "on-primary-fixed": "#0f0069",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "secondary": "#58579b",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#a44100",
+                        "on-tertiary-fixed": "#351000",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "on-tertiary-container": "#ffd2be",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f6; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col items-center justify-center p-6 md:p-12 overflow-hidden">
+<!-- Top Navigation (Back Link Only) -->
+<nav class="fixed top-0 left-0 w-full p-8 flex justify-between items-center pointer-events-none">
+<div class="pointer-events-auto">
+<button class="group flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span class="text-sm font-medium font-label tracking-wide">BACK</span>
+</button>
+</div>
+<div class="pointer-events-auto">
+<span class="text-sm font-bold font-headline tracking-tighter text-primary/40">Aura</span>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-4xl flex flex-col items-center gap-12 mt-8">
+<!-- Header Section -->
+<header class="text-center space-y-4 max-w-xl">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary/5 text-primary border border-primary/10 mb-4">
+<span class="text-[10px] font-bold font-label tracking-[0.2em] uppercase">Step 3: Action</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tight text-on-surface leading-tight">
+                Add your first expense or goal
+            </h1>
+<p class="text-on-surface-variant text-base md:text-lg font-body leading-relaxed">
+                Let's start populating your ledger. Choose an action to begin your financial journey with Aura.
+            </p>
+</header>
+<!-- Selection Cards (Asymmetric/Bento Inspired) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
+<!-- Option 1: Log Expense -->
+<button class="group relative text-left p-8 glass-card rounded-[24px] border border-transparent hover:border-primary/20 transition-all duration-500 hover:scale-[1.02] active:scale-95 shadow-[0_4px_20px_rgba(27,28,26,0.04)] hover:shadow-[0_20px_40px_rgba(27,28,26,0.08)] overflow-hidden">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="flex flex-col h-full justify-between gap-12">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold font-headline text-on-surface mb-2">Log an expense</h2>
+<p class="text-on-surface-variant text-sm font-body leading-relaxed">
+                            Record a recent purchase, bill, or daily spending to see where your money flows.
+                        </p>
+<div class="mt-6 flex items-center gap-2 text-primary font-bold text-xs font-label tracking-widest uppercase opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all">
+                            Start Recording <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+</button>
+<!-- Option 2: Create Goal -->
+<button class="group relative text-left p-8 glass-card rounded-[24px] border border-transparent hover:border-tertiary/20 transition-all duration-500 hover:scale-[1.02] active:scale-95 shadow-[0_4px_20px_rgba(27,28,26,0.04)] hover:shadow-[0_20px_40px_rgba(27,28,26,0.08)] overflow-hidden">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-tertiary/5 rounded-full blur-3xl group-hover:bg-tertiary/10 transition-colors"></div>
+<div class="flex flex-col h-full justify-between gap-12">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-low flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-white transition-all duration-500">
+<span class="material-symbols-outlined text-[32px]">ads_click</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold font-headline text-on-surface mb-2">Create a goal</h2>
+<p class="text-on-surface-variant text-sm font-body leading-relaxed">
+                            Set a target for a new car, dream vacation, or emergency fund and track your progress.
+                        </p>
+<div class="mt-6 flex items-center gap-2 text-tertiary font-bold text-xs font-label tracking-widest uppercase opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all">
+                            Set Milestone <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+</button>
+</div>
+<!-- Skip Link -->
+<div class="mt-4">
+<button class="text-on-surface-variant hover:text-primary font-medium font-body flex items-center gap-1 transition-all group">
+                Go to Dashboard
+                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation & Progress -->
+<footer class="fixed bottom-0 left-0 w-full p-10 flex flex-col items-center gap-6 pointer-events-none">
+<!-- Progress Indicator -->
+<div class="flex gap-3">
+<div class="w-2 h-2 rounded-full bg-primary/20"></div>
+<div class="w-2 h-2 rounded-full bg-primary/20"></div>
+<div class="w-8 h-2 rounded-full bg-primary"></div>
+</div>
+<!-- AI Aura Intelligence Chip (Subtle) -->
+<div class="pointer-events-auto">
+<div class="flex items-center gap-2 px-4 py-2 bg-secondary-container/20 rounded-xl border border-secondary-container/30 backdrop-blur-sm shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary animate-pulse" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-[11px] font-bold font-label tracking-wider text-primary uppercase">Smart Suggestion: Log your last ₹ lunch expense</span>
+</div>
+</div>
+</footer>
+<!-- Background Accents (Editorial Texture) -->
+<div class="fixed top-[15%] left-[5%] w-[30vw] h-[30vw] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
+<div class="fixed bottom-[10%] right-[10%] w-[25vw] h-[25vw] bg-tertiary/5 rounded-full blur-[100px] -z-10"></div>
+</body></html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Goal Detail - Aura</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#efeeeb",
+                    "primary": "#3525cd",
+                    "inverse-on-surface": "#f2f1ee",
+                    "on-background": "#1b1c1a",
+                    "secondary-container": "#b6b4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e9e8e5",
+                    "background": "#faf9f6",
+                    "on-primary-container": "#dad7ff",
+                    "outline": "#777587",
+                    "surface-dim": "#dbdad7",
+                    "inverse-surface": "#2f312f",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c7c4d8",
+                    "surface-bright": "#faf9f6",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#e2dfff",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "surface-container-highest": "#e3e2df",
+                    "inverse-primary": "#c3c0ff",
+                    "surface": "#faf9f6",
+                    "on-surface-variant": "#464555",
+                    "tertiary-fixed": "#ffdbcc",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-container": "#454386",
+                    "primary-container": "#4f46e5",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e3e2df",
+                    "tertiary": "#7e3000",
+                    "surface-container-low": "#f4f3f0",
+                    "surface-tint": "#4d44e3",
+                    "on-surface": "#1b1c1a",
+                    "on-secondary-fixed": "#140f54",
+                    "on-primary-fixed": "#0f0069",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "secondary": "#58579b",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#a44100",
+                    "on-tertiary-fixed": "#351000",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "on-secondary-fixed-variant": "#413f82",
+                    "on-tertiary-container": "#ffd2be",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .tonal-transition { background: linear-gradient(to bottom, #efeeeb 0%, #faf9f6 100%); }
+        .glass-card { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.85); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .aura-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body antialiased">
+<!-- Top Navigation Bar (Shared Component Logic) -->
+<header class="fixed top-0 w-full h-[64px] z-50 bg-[#faf9f6]/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="hidden md:flex items-center justify-between px-8 w-full max-w-7xl mx-auto h-full">
+<div class="flex items-center gap-6">
+<span class="text-2xl font-bold tracking-tighter text-[#3525cd] font-headline">Aura</span>
+<nav class="flex gap-8">
+<a class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors duration-300" href="#">Dashboard</a>
+<a class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors duration-300" href="#">Expenses</a>
+<a class="text-[#3525cd] border-b-2 border-[#3525cd] pb-1 font-medium" href="#">Goals</a>
+<a class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors duration-300" href="#">Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-stone-500">account_balance_wallet</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User Avatar" data-alt="close-up portrait of a professional man with a friendly expression in a brightly lit studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmimECaRL4URoPVcFy3VsnXFc0-aepxl7EZrgNw3oJKlRKeL9Dc82kVNyQZYHgZCmtYwtK6rt1mQA5XsrH1XqiUDAFy3-jcBuLTlOlOV5kCjIBLP__F7aQxvgvIVrV_jkXnLvjG4j2SkkIjOsVKUMVzsUMsIDsh5rNbJ6VnbuG8LN8mHTzjA6HNfVY2Hi4sP-p7isuY27dl0SLt3ZaxgTHkZGBlPW3_zCTTAXSPDn6kmF3n4mV1YgrylV5ySxreU4ezaMW7QVofnY"/>
+</div>
+</div>
+</div>
+<!-- Mobile Header -->
+<div class="md:hidden flex items-center justify-between px-6 h-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+<span class="font-headline font-semibold text-lg">MacBook Pro</span>
+</div>
+<div class="px-3 py-1 bg-primary/10 rounded-full">
+<span class="text-[10px] font-bold tracking-widest uppercase text-primary">On Track</span>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 md:pt-28 max-w-5xl mx-auto px-6">
+<!-- Desktop Header Title (Hidden on Mobile) -->
+<div class="hidden md:flex items-center justify-between mb-12">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div>
+<h1 class="text-3xl font-headline font-extrabold tracking-tight">MacBook Pro</h1>
+<p class="text-stone-500 text-sm">Technology &amp; Productivity Fund</p>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-secondary-container/20 px-4 py-2 rounded-xl">
+<div class="w-2 h-2 rounded-full bg-primary aura-pulse"></div>
+<span class="text-sm font-bold tracking-wide text-primary uppercase">Active Savings</span>
+</div>
+</div>
+<!-- Hero Section: Progress Visualization -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12 items-center">
+<div class="md:col-span-5 flex justify-center">
+<div class="relative w-64 h-64 md:w-80 md:h-80">
+<!-- Progress Ring -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-high" cx="50%" cy="50%" fill="transparent" r="45%" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary" cx="50%" cy="50%" fill="transparent" r="45%" stroke="url(#paint0_linear)" stroke-dasharray="28 72" stroke-dashoffset="0" stroke-linecap="round" stroke-width="14"></circle>
+<defs>
+<lineargradient id="paint0_linear" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#3525cd"></stop>
+<stop offset="100%" stop-color="#4f46e5"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-6xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface">28%</span>
+<div class="mt-4 flex flex-col items-center">
+<span class="text-stone-400 text-xs font-label tracking-widest uppercase">Saved so far</span>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-xl font-bold">₹24,000</span>
+<span class="text-stone-400 text-sm">of ₹85,000</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Row Cards -->
+<div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="p-6 rounded-2xl bg-surface-container-low flex flex-col justify-between h-32">
+<span class="text-stone-500 text-xs font-label tracking-widest uppercase">Monthly Target</span>
+<span class="text-2xl font-bold text-on-surface">₹2,833</span>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low flex flex-col justify-between h-32">
+<span class="text-stone-500 text-xs font-label tracking-widest uppercase">Est. Completion</span>
+<span class="text-2xl font-bold text-on-surface">Sep 2026</span>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low flex flex-col justify-between h-32">
+<span class="text-stone-500 text-xs font-label tracking-widest uppercase">Months Remaining</span>
+<span class="text-2xl font-bold text-on-surface">5</span>
+</div>
+</div>
+</section>
+<!-- Current Month Contribution -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xl font-headline font-bold">This Month's Contribution</h2>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-low text-stone-500">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-error/10 text-error/70">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+<div class="glass-card p-8 rounded-3xl border border-white/40 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">payments</span>
+</div>
+<div>
+<p class="text-stone-500 text-sm mb-1">Status: Deposited</p>
+<p class="text-2xl font-bold text-on-surface">₹2,000 <span class="text-stone-400 font-normal text-lg">contributed this month</span></p>
+</div>
+</div>
+<div class="hidden sm:block">
+<button class="bg-primary text-white px-6 py-2 rounded-xl font-semibold text-sm hover:opacity-90 transition-all active:scale-95">Add Extra</button>
+</div>
+</div>
+</section>
+<!-- Intelligence Chip (Aura Unique) -->
+<div class="mb-12 bg-secondary-container/10 p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-[#3525cd] aura-pulse">auto_awesome</span>
+<p class="text-sm text-on-secondary-container font-medium">Aura Insight: At this rate, you'll reach your goal 2 months earlier than projected!</p>
+</div>
+<!-- Contribution History -->
+<section class="mb-20">
+<h2 class="text-xl font-headline font-bold mb-6">Contribution History</h2>
+<div class="space-y-4">
+<!-- Row 1 -->
+<div class="flex items-center justify-between p-4 bg-white/40 rounded-2xl hover:bg-white transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors"></div>
+<span class="font-medium text-stone-700">August 2024</span>
+</div>
+<span class="font-bold text-lg">₹2,000</span>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center justify-between p-4 bg-white/40 rounded-2xl hover:bg-white transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors"></div>
+<span class="font-medium text-stone-700">July 2024</span>
+</div>
+<span class="font-bold text-lg">₹2,500</span>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center justify-between p-4 bg-white/40 rounded-2xl hover:bg-white transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors"></div>
+<span class="font-medium text-stone-700">June 2024</span>
+</div>
+<span class="font-bold text-lg">₹1,800</span>
+</div>
+<!-- Row 4 -->
+<div class="flex items-center justify-between p-4 bg-white/40 rounded-2xl hover:bg-white transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors"></div>
+<span class="font-medium text-stone-700">May 2024</span>
+</div>
+<span class="font-bold text-lg">₹3,000</span>
+</div>
+</div>
+<button class="mt-8 w-full py-4 text-stone-400 font-label tracking-widest text-xs uppercase hover:text-primary transition-colors">View All History</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-[64px] bg-[#faf9f6]/90 backdrop-blur-md flex justify-around items-center px-4 pb-safe z-50 shadow-[0_-4px_20px_rgba(27,28,26,0.04)] rounded-t-2xl">
+<button class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Expenses</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#3525cd] scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">ads_click</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Goals</span>
+</button>
+<button class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Insights</span>
+</button>
+<button class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">History</span>
+</button>
+</nav>
+</body></html>

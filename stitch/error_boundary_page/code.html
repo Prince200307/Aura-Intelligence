@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura - Something Went Wrong</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#efeeeb",
+            "primary": "#3525cd",
+            "inverse-on-surface": "#f2f1ee",
+            "on-background": "#1b1c1a",
+            "secondary-container": "#b6b4ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e9e8e5",
+            "background": "#faf9f6",
+            "on-primary-container": "#dad7ff",
+            "outline": "#777587",
+            "surface-dim": "#dbdad7",
+            "inverse-surface": "#2f312f",
+            "on-error": "#ffffff",
+            "outline-variant": "#c7c4d8",
+            "surface-bright": "#faf9f6",
+            "on-tertiary-fixed-variant": "#7b2f00",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#e2dfff",
+            "primary-fixed-dim": "#c3c0ff",
+            "surface-container-highest": "#e3e2df",
+            "inverse-primary": "#c3c0ff",
+            "surface": "#faf9f6",
+            "on-surface-variant": "#464555",
+            "tertiary-fixed": "#ffdbcc",
+            "primary-fixed": "#e2dfff",
+            "on-secondary-container": "#454386",
+            "primary-container": "#4f46e5",
+            "error": "#ba1a1a",
+            "surface-variant": "#e3e2df",
+            "tertiary": "#7e3000",
+            "surface-container-low": "#f4f3f0",
+            "surface-tint": "#4d44e3",
+            "on-surface": "#1b1c1a",
+            "on-secondary-fixed": "#140f54",
+            "on-primary-fixed": "#0f0069",
+            "on-primary-fixed-variant": "#3323cc",
+            "secondary": "#58579b",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#a44100",
+            "on-tertiary-fixed": "#351000",
+            "secondary-fixed-dim": "#c3c0ff",
+            "tertiary-fixed-dim": "#ffb695",
+            "on-secondary-fixed-variant": "#413f82",
+            "on-tertiary-container": "#ffd2be",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .headline-font { font-family: 'Manrope', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .tonal-lift {
+      background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);
+    }
+    .aura-gradient {
+      background: linear-gradient(135deg, #3525cd 0%, #4f46e5 100%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col items-center justify-center p-6 selection:bg-secondary-container">
+<!-- Suppression of Global Nav Shells per "Relevance Check" Rule for focused/error states -->
+<main class="w-full max-w-xl flex flex-col items-center text-center">
+<!-- Visual Anchor: Minimal Calm Icon -->
+<div class="relative mb-12 flex items-center justify-center">
+<div class="absolute w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="relative w-24 h-24 rounded-3xl bg-surface-container-low flex items-center justify-center ring-1 ring-outline-variant/10 shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="cloud_off">cloud_off</span>
+</div>
+</div>
+<!-- Editorial Narrative -->
+<h1 class="headline-font text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-4">
+      Something went wrong
+    </h1>
+<p class="text-on-surface-variant text-lg max-w-md mb-12 font-medium leading-relaxed">
+      We couldn't load your data. This is usually a temporary issue.
+    </p>
+<!-- Action Cluster -->
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
+<button class="aura-gradient px-8 py-4 rounded-xl text-on-primary font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all w-full sm:w-auto">
+        Try again
+      </button>
+<a class="px-8 py-4 rounded-xl text-primary font-semibold hover:bg-surface-container-low transition-all duration-300 w-full sm:w-auto" href="#">
+        Go to Dashboard
+      </a>
+</div>
+<!-- Aura Intelligence Chip (Subtle reinforcement) -->
+<div class="mt-20 flex items-center gap-2 bg-secondary-container/10 px-4 py-2 rounded-full border border-secondary-container/20">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-secondary">Aura Status: Operational</span>
+</div>
+</main>
+<!-- Background Decorative Canvas (Linear + Apple Aesthetic) -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+<!-- Asymmetric Glass Element -->
+<div class="absolute -top-[10%] -right-[5%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute top-[20%] -left-[10%] w-[30%] h-[50%] bg-tertiary/5 rounded-full blur-[100px]"></div>
+<!-- Tonal Texture -->
+<div class="absolute bottom-0 left-0 w-full h-[442px] bg-gradient-to-t from-surface-container-low to-transparent opacity-50"></div>
+</div>
+<!-- Footer Meta (Minimal editorial touch) -->
+<footer class="fixed bottom-12 w-full text-center">
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] uppercase tracking-[0.2em] font-bold text-outline">Error Code: AX-92</span>
+<p class="text-xs text-on-surface-variant/60 font-medium">© 2024 Aura Financial Intelligence</p>
+</div>
+</footer>
+</body></html>

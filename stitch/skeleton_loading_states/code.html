@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura - System Loading</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#efeeeb",
+                    "primary": "#3525cd",
+                    "inverse-on-surface": "#f2f1ee",
+                    "on-background": "#1b1c1a",
+                    "secondary-container": "#b6b4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e9e8e5",
+                    "background": "#faf9f6",
+                    "on-primary-container": "#dad7ff",
+                    "outline": "#777587",
+                    "surface-dim": "#dbdad7",
+                    "inverse-surface": "#2f312f",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c7c4d8",
+                    "surface-bright": "#faf9f6",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#e2dfff",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "surface-container-highest": "#e3e2df",
+                    "inverse-primary": "#c3c0ff",
+                    "surface": "#faf9f6",
+                    "on-surface-variant": "#464555",
+                    "tertiary-fixed": "#ffdbcc",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-container": "#454386",
+                    "primary-container": "#4f46e5",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e3e2df",
+                    "tertiary": "#7e3000",
+                    "surface-container-low": "#f4f3f0",
+                    "surface-tint": "#4d44e3",
+                    "on-surface": "#1b1c1a",
+                    "on-secondary-fixed": "#140f54",
+                    "on-primary-fixed": "#0f0069",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "secondary": "#58579b",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#a44100",
+                    "on-tertiary-fixed": "#351000",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "on-secondary-fixed-variant": "#413f82",
+                    "on-tertiary-container": "#ffd2be",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .skeleton-shimmer {
+            background: linear-gradient(
+                90deg,
+                #E5E7EB 0%,
+                #F3F4F6 50%,
+                #E5E7EB 100%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .tonal-lift {
+            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(244,243,240,0.4) 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full h-[64px] z-50 bg-[#faf9f6]/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="hidden md:flex items-center justify-between px-8 w-full max-w-7xl mx-auto h-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#3525cd]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h1 class="text-2xl font-bold tracking-tighter text-[#3525cd] font-headline">Aura</h1>
+</div>
+<nav class="flex items-center gap-8">
+<span class="text-[#3525cd] border-b-2 border-[#3525cd] pb-1 font-medium cursor-default">Dashboard</span>
+<span class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors cursor-default">Expenses</span>
+<span class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors cursor-default">Goals</span>
+<span class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors cursor-default">Insights</span>
+<span class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors cursor-default">History</span>
+</nav>
+<div class="h-8 w-8 rounded-full skeleton-shimmer"></div>
+</div>
+<!-- Mobile Header -->
+<div class="md:hidden flex items-center justify-between px-6 h-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#3525cd]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h1 class="text-xl font-bold tracking-tighter text-[#3525cd] font-headline">Aura</h1>
+</div>
+<div class="h-8 w-8 rounded-full skeleton-shimmer"></div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Dashboard Skeleton -->
+<section class="mb-16">
+<div class="h-10 w-48 skeleton-shimmer rounded-lg mb-8"></div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Balance Card -->
+<div class="md:col-span-2 glass-card rounded-[24px] p-8 shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="h-4 w-32 skeleton-shimmer rounded mb-4"></div>
+<div class="h-16 w-64 skeleton-shimmer rounded-xl mb-12"></div>
+<div class="flex gap-4">
+<div class="h-12 w-32 skeleton-shimmer rounded-xl"></div>
+<div class="h-12 w-32 skeleton-shimmer rounded-xl"></div>
+</div>
+</div>
+<!-- Circular Progress / Aura Chip -->
+<div class="glass-card rounded-[24px] p-8 flex flex-col items-center justify-center shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="h-32 w-32 rounded-full border-8 border-stone-100 flex items-center justify-center mb-6">
+<div class="h-24 w-24 rounded-full skeleton-shimmer"></div>
+</div>
+<div class="h-4 w-40 skeleton-shimmer rounded"></div>
+</div>
+<!-- Recent Transactions (Expenses Skeleton) -->
+<div class="md:col-span-3 glass-card rounded-[24px] p-8 shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="flex justify-between items-center mb-8">
+<div class="h-6 w-40 skeleton-shimmer rounded"></div>
+<div class="h-4 w-20 skeleton-shimmer rounded"></div>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-xl skeleton-shimmer"></div>
+<div class="space-y-2">
+<div class="h-4 w-32 skeleton-shimmer rounded"></div>
+<div class="h-3 w-20 skeleton-shimmer rounded"></div>
+</div>
+</div>
+<div class="h-4 w-24 skeleton-shimmer rounded"></div>
+</div>
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-xl skeleton-shimmer"></div>
+<div class="space-y-2">
+<div class="h-4 w-28 skeleton-shimmer rounded"></div>
+<div class="h-3 w-16 skeleton-shimmer rounded"></div>
+</div>
+</div>
+<div class="h-4 w-20 skeleton-shimmer rounded"></div>
+</div>
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-xl skeleton-shimmer"></div>
+<div class="space-y-2">
+<div class="h-4 w-36 skeleton-shimmer rounded"></div>
+<div class="h-3 w-24 skeleton-shimmer rounded"></div>
+</div>
+</div>
+<div class="h-4 w-22 skeleton-shimmer rounded"></div>
+</div>
+</div>
+</div>
+<!-- Financial Goals Skeleton -->
+<div class="md:col-span-3 lg:col-span-1 glass-card rounded-[24px] p-8 shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="h-6 w-32 skeleton-shimmer rounded mb-8"></div>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-3">
+<div class="h-4 w-24 skeleton-shimmer rounded"></div>
+<div class="h-4 w-12 skeleton-shimmer rounded"></div>
+</div>
+<div class="h-2 w-full bg-stone-100 rounded-full overflow-hidden">
+<div class="h-full w-2/3 skeleton-shimmer rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-3">
+<div class="h-4 w-32 skeleton-shimmer rounded"></div>
+<div class="h-4 w-12 skeleton-shimmer rounded"></div>
+</div>
+<div class="h-2 w-full bg-stone-100 rounded-full overflow-hidden">
+<div class="h-full w-1/2 skeleton-shimmer rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Insights Skeleton (Asymmetric) -->
+<div class="md:col-span-3 lg:col-span-2 glass-card rounded-[24px] p-8 bg-stone-100/30 shadow-none">
+<div class="flex items-start gap-4">
+<div class="h-10 w-10 rounded-full bg-[#3525cd]/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[#3525cd]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="w-full space-y-4">
+<div class="h-5 w-48 skeleton-shimmer rounded"></div>
+<div class="h-4 w-full skeleton-shimmer rounded"></div>
+<div class="h-4 w-3/4 skeleton-shimmer rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#faf9f6]/90 backdrop-blur-md rounded-t-2xl z-50 h-[64px] flex justify-around items-center px-4 pb-safe shadow-[0_-4px_20px_rgba(27,28,26,0.04)]">
+<div class="flex flex-col items-center justify-center text-[#3525cd] scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Expenses</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined" data-icon="ads_click">ads_click</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Goals</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">History</span>
+</div>
+</nav>
+</body></html>

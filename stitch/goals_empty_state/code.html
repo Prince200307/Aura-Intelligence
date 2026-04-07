@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Goals | Aura</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#efeeeb",
+                    "primary": "#3525cd",
+                    "inverse-on-surface": "#f2f1ee",
+                    "on-background": "#1b1c1a",
+                    "secondary-container": "#b6b4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e9e8e5",
+                    "background": "#faf9f6",
+                    "on-primary-container": "#dad7ff",
+                    "outline": "#777587",
+                    "surface-dim": "#dbdad7",
+                    "inverse-surface": "#2f312f",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c7c4d8",
+                    "surface-bright": "#faf9f6",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#e2dfff",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "surface-container-highest": "#e3e2df",
+                    "inverse-primary": "#c3c0ff",
+                    "surface": "#faf9f6",
+                    "on-surface-variant": "#464555",
+                    "tertiary-fixed": "#ffdbcc",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-container": "#454386",
+                    "primary-container": "#4f46e5",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e3e2df",
+                    "tertiary": "#7e3000",
+                    "surface-container-low": "#f4f3f0",
+                    "surface-tint": "#4d44e3",
+                    "on-surface": "#1b1c1a",
+                    "on-secondary-fixed": "#140f54",
+                    "on-primary-fixed": "#0f0069",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "secondary": "#58579b",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#a44100",
+                    "on-tertiary-fixed": "#351000",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "on-secondary-fixed-variant": "#413f82",
+                    "on-tertiary-container": "#ffd2be",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f6; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .tonal-transition { transition: background-color 0.3s ease; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+        .tonal-lift { background-color: #f4f3f0; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full h-[64px] z-50 bg-[#faf9f6]/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="hidden md:flex items-center justify-between px-8 w-full max-w-7xl mx-auto h-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-[#3525cd] font-headline">Aura</span>
+<nav class="flex gap-6 items-center">
+<a class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors duration-300" href="#">Dashboard</a>
+<a class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors duration-300" href="#">Expenses</a>
+<a class="text-[#3525cd] border-b-2 border-[#3525cd] pb-1 font-semibold" href="#">Goals</a>
+<a class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors duration-300" href="#">Insights</a>
+<a class="text-stone-500 font-medium hover:text-[#3525cd] transition-colors duration-300" href="#">History</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">account_balance_wallet</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User profile avatar" data-alt="close-up portrait of a professional woman in a bright airy modern office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPcpD_FKER5IhfIo7YWYeCr9CMghtuAMdj44cVR6UPl5q-UZ6DFNzppWQ56ZL6rvoM_DVZwLZhyfpzNIX8P3lA3gH4C6W3sENrLv2KCaAG8ANT8DliFA2lcVq0IY7LJtrz5aR8kMWgRzg2vTD9h1V_QXCxkimpb4jVVnnTU9bpaLKXKeYN9DKcW26LPmCaKhXRXV5g6K7RGcKLTCL5T_gqsPCoQd-bA9065JyZ_XJwEPMIdg3Bhm8g_2G65g8jHvE9DwQWUYYEQwk"/>
+</div>
+</div>
+</div>
+<!-- Mobile Header Title -->
+<div class="md:hidden flex items-center justify-between px-6 h-full">
+<span class="text-xl font-bold tracking-tighter text-[#3525cd] font-headline">Aura</span>
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+</div>
+</header>
+<main class="min-h-screen pt-24 pb-32 px-6 max-w-lg mx-auto flex flex-col justify-center">
+<!-- Aura Intelligence Chip -->
+<div class="flex justify-center mb-8">
+<div class="bg-secondary-container/20 text-on-secondary-fixed-variant px-4 py-1.5 rounded-full flex items-center gap-2 animate-pulse">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-label">Financial Clarity</span>
+</div>
+</div>
+<!-- Empty State Illustration & Content -->
+<div class="text-center">
+<div class="relative w-48 h-48 mx-auto mb-12 flex items-center justify-center">
+<!-- Decorative blurred background for the illustration -->
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl"></div>
+<!-- Linear/Apple style minimal Trophy/Target outline -->
+<svg class="relative z-10 text-outline-variant" fill="none" height="120" viewbox="0 0 24 24" width="120" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5"></path>
+<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-dasharray="2 2" stroke-width="0.5"></circle>
+<circle cx="12" cy="12" r="5" stroke="currentColor" stroke-linecap="round" stroke-width="1"></circle>
+<path d="M12 10V14M10 12H14" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<h1 class="text-3xl font-bold font-headline text-on-surface tracking-tight mb-3">No goals yet</h1>
+<p class="text-on-surface-variant leading-relaxed mb-10 max-w-[280px] mx-auto">
+                Set a saving goal for something you're working toward — <span class="font-semibold text-on-surface">₹5,000 minimum</span>
+</p>
+<!-- CTA -->
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl font-semibold shadow-[0_12px_40px_rgba(53,37,205,0.15)] active:scale-95 transition-all duration-200">
+                + Create your first goal
+            </button>
+</div>
+<!-- Notion-inspired subtle hints -->
+<div class="mt-16 space-y-6">
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors duration-300 cursor-help group">
+<div class="mt-1">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">tips_and_updates</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-on-surface mb-1">Smart Tracking</h3>
+<p class="text-xs text-on-surface-variant">Aura automatically rounds up your transactions to help you reach your goals 14% faster.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors duration-300 cursor-help group">
+<div class="mt-1">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">shield</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-on-surface mb-1">Locked Vaults</h3>
+<p class="text-xs text-on-surface-variant">Keep your savings separate from your spending balance with goal-specific vaults.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe h-[64px] bg-[#faf9f6]/90 backdrop-blur-md rounded-t-2xl shadow-[0_-4px_20px_rgba(27,28,26,0.04)] z-50">
+<div class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Expenses</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#3525cd] scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">ads_click</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Goals</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">History</span>
+</div>
+</nav>
+<!-- Background Decoration (Atmospheric Tones) -->
+<div class="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/5 blur-[120px] -z-10 rounded-full"></div>
+<div class="fixed bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-tertiary/5 blur-[100px] -z-10 rounded-full"></div>
+</body></html>

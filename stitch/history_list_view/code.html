@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#efeeeb",
+                    "primary": "#3525cd",
+                    "inverse-on-surface": "#f2f1ee",
+                    "on-background": "#1b1c1a",
+                    "secondary-container": "#b6b4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e9e8e5",
+                    "background": "#faf9f6",
+                    "on-primary-container": "#dad7ff",
+                    "outline": "#777587",
+                    "surface-dim": "#dbdad7",
+                    "inverse-surface": "#2f312f",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c7c4d8",
+                    "surface-bright": "#faf9f6",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#e2dfff",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "surface-container-highest": "#e3e2df",
+                    "inverse-primary": "#c3c0ff",
+                    "surface": "#faf9f6",
+                    "on-surface-variant": "#464555",
+                    "tertiary-fixed": "#ffdbcc",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-container": "#454386",
+                    "primary-container": "#4f46e5",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e3e2df",
+                    "tertiary": "#7e3000",
+                    "surface-container-low": "#f4f3f0",
+                    "surface-tint": "#4d44e3",
+                    "on-surface": "#1b1c1a",
+                    "on-secondary-fixed": "#140f54",
+                    "on-primary-fixed": "#0f0069",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "secondary": "#58579b",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#a44100",
+                    "on-tertiary-fixed": "#351000",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "on-secondary-fixed-variant": "#413f82",
+                    "on-tertiary-container": "#ffd2be",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-lift {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(244,243,240,1) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        body {
+            background-color: #faf9f6;
+            color: #1b1c1a;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full h-[64px] z-50 bg-[#faf9f6]/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="hidden md:flex items-center justify-between px-8 w-full max-w-7xl mx-auto h-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-[#3525cd] dark:text-[#4f46e5] font-headline">Aura</span>
+<nav class="flex gap-6">
+<a class="text-stone-500 dark:text-stone-400 font-medium font-label text-xs uppercase tracking-widest hover:text-[#3525cd] transition-colors duration-300" href="#">Dashboard</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium font-label text-xs uppercase tracking-widest hover:text-[#3525cd] transition-colors duration-300" href="#">Expenses</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium font-label text-xs uppercase tracking-widest hover:text-[#3525cd] transition-colors duration-300" href="#">Goals</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium font-label text-xs uppercase tracking-widest hover:text-[#3525cd] transition-colors duration-300" href="#">Insights</a>
+<a class="text-[#3525cd] dark:text-[#4f46e5] border-b-2 border-[#3525cd] pb-1 font-label text-xs uppercase tracking-widest font-bold" href="#">History</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-stone-600">account_balance_wallet</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Professional portrait of a man in a modern workspace, soft lighting, clean minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJhtaDRn_574n60QyVS3cr_mxttACKQTmV8y4n43lmNSqaPjrgDzDmUg3tp-IpJ3b1tr5KhtXdEwWITELry8RyWby-5fyRvNmzrgtiznljPrbfbx5fC9U_V5r_o2oFOGYnmqtO4k8JHP-KDVuwr7C04Fye58XnmmyBnLFWezpH3UI-zwMFBQ2G8h9uBdP3TZgg5Ws6HvnxT79mmWwYgBobyjNfuNeIPPSU5OgCCU-On1j670BGKG5Kmu5oBIynRibPbB1gAJBSNNE"/>
+</div>
+</div>
+</div>
+<!-- Mobile Header Title -->
+<div class="md:hidden flex items-center justify-center h-full">
+<span class="text-xl font-bold tracking-tighter text-[#3525cd] font-headline">Aura</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 pb-20 px-6 max-w-4xl mx-auto">
+<!-- Hero Header Section -->
+<div class="mb-12">
+<h1 class="font-headline text-5xl font-extrabold tracking-tight mb-2 text-on-surface">History</h1>
+<p class="font-body text-stone-500 text-lg">Your past months at a glance</p>
+</div>
+<!-- Asymmetric Bento-style Summary (Top Section) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="md:col-span-2 glass-card p-8 rounded-3xl border border-white/20 shadow-[0_4px_20px_rgba(27,28,26,0.04)] relative overflow-hidden">
+<div class="relative z-10">
+<span class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-stone-400 mb-4 block">Current Streak</span>
+<div class="text-4xl font-headline font-bold text-on-surface mb-2">6 Months Healthy</div>
+<p class="text-stone-500 max-w-xs">You've consistently hit your saving goals since October last year.</p>
+</div>
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+<div class="bg-primary p-8 rounded-3xl shadow-[0_12px_40px_rgba(53,37,205,0.15)] flex flex-col justify-between">
+<span class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-white/60">Annual Savings</span>
+<div class="text-3xl font-headline font-bold text-white">₹3,42,000</div>
+<div class="flex items-center text-white/80 gap-1 text-sm mt-4">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>12% YoY</span>
+</div>
+</div>
+</div>
+<!-- History List: Tonal Transition Based Rows -->
+<div class="space-y-4">
+<!-- March 2024 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 rounded-[2rem] p-2 cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center justify-between px-6 py-6">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+<span class="font-headline font-bold text-primary">MAR</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">March 2024</h3>
+<div class="flex items-center gap-3 mt-1">
+<span class="font-body text-sm text-stone-500 tracking-tight">₹1,12,000 spent · ₹24,000 saved</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/20 text-on-secondary-container">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-label text-[10px] font-bold tracking-widest uppercase">72 — Fair</span>
+</div>
+<span class="material-symbols-outlined text-stone-400 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- February 2024 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 rounded-[2rem] p-2 cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center justify-between px-6 py-6">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+<span class="font-headline font-bold text-primary">FEB</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">February 2024</h3>
+<div class="flex items-center gap-3 mt-1">
+<span class="font-body text-sm text-stone-500 tracking-tight">₹98,500 spent · ₹42,000 saved</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-tertiary-container/10 text-tertiary">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-label text-[10px] font-bold tracking-widest uppercase">88 — Excellent</span>
+</div>
+<span class="material-symbols-outlined text-stone-400 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- January 2024 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 rounded-[2rem] p-2 cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center justify-between px-6 py-6">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+<span class="font-headline font-bold text-primary">JAN</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">January 2024</h3>
+<div class="flex items-center gap-3 mt-1">
+<span class="font-body text-sm text-stone-500 tracking-tight">₹1,45,000 spent · ₹5,000 saved</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-error-container/30 text-error">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-label text-[10px] font-bold tracking-widest uppercase">45 — Critical</span>
+</div>
+<span class="material-symbols-outlined text-stone-400 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- December 2023 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 rounded-[2rem] p-2 cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center justify-between px-6 py-6">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+<span class="font-headline font-bold text-stone-400">DEC</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">December 2023</h3>
+<div class="flex items-center gap-3 mt-1">
+<span class="font-body text-sm text-stone-500 tracking-tight">₹1,08,000 spent · ₹18,000 saved</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/20 text-on-secondary-container">
+<div class="w-2 h-2 rounded-full bg-primary/40"></div>
+<span class="font-label text-[10px] font-bold tracking-widest uppercase">68 — Fair</span>
+</div>
+<span class="material-symbols-outlined text-stone-400 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- November 2023 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container-lowest transition-all duration-300 rounded-[2rem] p-2 cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center justify-between px-6 py-6">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+<span class="font-headline font-bold text-stone-400">NOV</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">November 2023</h3>
+<div class="flex items-center gap-3 mt-1">
+<span class="font-body text-sm text-stone-500 tracking-tight">₹82,000 spent · ₹55,000 saved</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-tertiary-container/10 text-tertiary">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-label text-[10px] font-bold tracking-widest uppercase">92 — Excellent</span>
+</div>
+<span class="material-symbols-outlined text-stone-400 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Tonal Button -->
+<div class="mt-12 flex justify-center">
+<button class="px-8 py-4 bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-2xl font-label text-xs uppercase tracking-widest font-bold text-on-surface">
+                Load older archives
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-[64px] bg-[#faf9f6]/90 dark:bg-stone-950/90 backdrop-blur-md rounded-t-2xl z-50 flex justify-around items-center px-4 pb-safe shadow-[0_-4px_20px_rgba(27,28,26,0.04)]">
+<a class="flex flex-col items-center justify-center text-stone-400" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Expenses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400" href="#">
+<span class="material-symbols-outlined">ads_click</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Insights</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#3525cd] scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">History</span>
+</a>
+</nav>
+</body></html>

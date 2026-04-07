@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura — Expenses</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#efeeeb",
+                    "primary": "#3525cd",
+                    "inverse-on-surface": "#f2f1ee",
+                    "on-background": "#1b1c1a",
+                    "secondary-container": "#b6b4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e9e8e5",
+                    "background": "#faf9f6",
+                    "on-primary-container": "#dad7ff",
+                    "outline": "#777587",
+                    "surface-dim": "#dbdad7",
+                    "inverse-surface": "#2f312f",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c7c4d8",
+                    "surface-bright": "#faf9f6",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#e2dfff",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "surface-container-highest": "#e3e2df",
+                    "inverse-primary": "#c3c0ff",
+                    "surface": "#faf9f6",
+                    "on-surface-variant": "#464555",
+                    "tertiary-fixed": "#ffdbcc",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-container": "#454386",
+                    "primary-container": "#4f46e5",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e3e2df",
+                    "tertiary": "#7e3000",
+                    "surface-container-low": "#f4f3f0",
+                    "surface-tint": "#4d44e3",
+                    "on-surface": "#1b1c1a",
+                    "on-secondary-fixed": "#140f54",
+                    "on-primary-fixed": "#0f0069",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "secondary": "#58579b",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#a44100",
+                    "on-tertiary-fixed": "#351000",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "on-secondary-fixed-variant": "#413f82",
+                    "on-tertiary-container": "#ffd2be",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f6; color: #1b1c1a; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.85); }
+        .tonal-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .tonal-lift:hover { background-color: #ffffff; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(27, 28, 26, 0.04); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full h-[64px] z-50 bg-[#faf9f6]/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(27,28,26,0.04)]">
+<div class="hidden md:flex items-center justify-between px-8 w-full max-w-7xl mx-auto h-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-[#3525cd] dark:text-[#4f46e5] font-headline">Aura</span>
+<nav class="flex gap-6">
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-[#3525cd] transition-colors duration-300 font-body" href="#">Dashboard</a>
+<a class="text-[#3525cd] dark:text-[#4f46e5] border-b-2 border-[#3525cd] pb-1 font-medium font-body" href="#">Expenses</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-[#3525cd] transition-colors duration-300 font-body" href="#">Goals</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-[#3525cd] transition-colors duration-300 font-body" href="#">Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">account_balance_wallet</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="close-up professional headshot of a person with a neutral expression in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJak2rau436Agt8sgbNqV34kRPxi5xVamqp2Z1n_6Gut3MgE6j8BropAT-WMs6sk48XzK5PDEivGkLYPxYyoat0UZM8O71-ZUroFR9fi3d3tC2PFUIsUBILL_Iot1NKK-GYTDqstxu0UavpNPIKXHulidrVgrxhD64Zasl3zvcwkQwEKJoOq5w0KlvQbSxDdXz9-cAR6j41vsBlzErO6wcnO3wbyqaCQqYvaXRAXM9wIlXqugMvfWpNYB2ewrtwfuWrlUTIVs1My8"/>
+</div>
+</div>
+</div>
+<!-- Mobile Header Title Only -->
+<div class="md:hidden flex items-center justify-center h-full">
+<span class="text-xl font-bold tracking-tighter text-[#3525cd] font-headline">Expenses</span>
+</div>
+</header>
+<main class="pt-24 px-4 md:px-8 max-w-5xl mx-auto space-y-8">
+<!-- Search & Filter Bar -->
+<section class="space-y-4">
+<div class="flex flex-col md:flex-row gap-4">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-xl focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all font-body text-on-surface" placeholder="Search expenses..." type="text"/>
+</div>
+<div class="flex gap-2 h-[52px]">
+<div class="flex items-center gap-2 px-4 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container-high transition-colors font-body text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                        Category
+                    </div>
+<div class="flex items-center gap-2 px-4 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container-high transition-colors font-body text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">sort</span>
+                        Sort
+                    </div>
+</div>
+</div>
+<!-- Active Filter Pills -->
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold tracking-wide font-label border border-primary/20">
+                    THIS MONTH
+                    <span class="material-symbols-outlined text-sm cursor-pointer">close</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-tertiary/10 text-tertiary rounded-full text-xs font-bold tracking-wide font-label border border-tertiary/20">
+                    NEED
+                    <span class="material-symbols-outlined text-sm cursor-pointer">close</span>
+</div>
+</div>
+</section>
+<!-- Needs Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-end px-2">
+<div class="flex items-center gap-3">
+<h2 class="text-xl font-bold font-headline text-on-surface">Needs</h2>
+<span class="px-2 py-0.5 bg-surface-container-high rounded text-[10px] font-bold font-label text-outline uppercase tracking-tighter">14 Items</span>
+</div>
+<span class="text-lg font-bold font-headline text-on-surface">₹42,850.00</span>
+</div>
+<div class="space-y-1">
+<!-- Expense Row 1 -->
+<div class="group flex items-center justify-between p-4 bg-surface-container-low/50 rounded-2xl tonal-lift cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface font-body">Monthly Rent</p>
+<span class="text-[10px] font-bold tracking-widest font-label text-blue-500 uppercase">Housing</span>
+</div>
+</div>
+<span class="text-lg font-bold font-headline text-on-surface tabular-nums">₹32,000</span>
+</div>
+<!-- Expense Row 2 -->
+<div class="group flex items-center justify-between p-4 bg-surface-container-low/50 rounded-2xl tonal-lift cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined">electric_bolt</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface font-body">Utility Bill (Tata Power)</p>
+<span class="text-[10px] font-bold tracking-widest font-label text-orange-500 uppercase">Utilities</span>
+</div>
+</div>
+<span class="text-lg font-bold font-headline text-on-surface tabular-nums">₹4,450</span>
+</div>
+<!-- Expense Row 3 -->
+<div class="group flex items-center justify-between p-4 bg-surface-container-low/50 rounded-2xl tonal-lift cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-xl bg-green-100 text-green-600">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface font-body">Groceries (BigBasket)</p>
+<span class="text-[10px] font-bold tracking-widest font-label text-green-500 uppercase">Food</span>
+</div>
+</div>
+<span class="text-lg font-bold font-headline text-on-surface tabular-nums">₹6,400</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-high/30 rounded-xl flex justify-center">
+<p class="text-xs font-bold font-label tracking-widest text-outline uppercase">Total Needs: ₹42,850</p>
+</div>
+</section>
+<!-- Wants Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-end px-2">
+<div class="flex items-center gap-3">
+<h2 class="text-xl font-bold font-headline text-on-surface">Wants</h2>
+<span class="px-2 py-0.5 bg-surface-container-high rounded text-[10px] font-bold font-label text-outline uppercase tracking-tighter">8 Items</span>
+</div>
+<span class="text-lg font-bold font-headline text-on-surface">₹12,400.00</span>
+</div>
+<div class="space-y-1">
+<!-- Expense Row 1 -->
+<div class="group flex items-center justify-between p-4 bg-surface-container-low/50 rounded-2xl tonal-lift cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-xl bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface font-body">Netflix Subscription</p>
+<span class="text-[10px] font-bold tracking-widest font-label text-purple-500 uppercase">Entertainment</span>
+</div>
+</div>
+<span class="text-lg font-bold font-headline text-on-surface tabular-nums">₹649</span>
+</div>
+<!-- Expense Row 2 -->
+<div class="group flex items-center justify-between p-4 bg-surface-container-low/50 rounded-2xl tonal-lift cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-xl bg-pink-100 text-pink-600">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface font-body">Weekend Dining Out</p>
+<span class="text-[10px] font-bold tracking-widest font-label text-pink-500 uppercase">Lifestyle</span>
+</div>
+</div>
+<span class="text-lg font-bold font-headline text-on-surface tabular-nums">₹4,250</span>
+</div>
+<!-- Expense Row 3 -->
+<div class="group flex items-center justify-between p-4 bg-surface-container-low/50 rounded-2xl tonal-lift cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface font-body">New Sneakers</p>
+<span class="text-[10px] font-bold tracking-widest font-label text-indigo-500 uppercase">Shopping</span>
+</div>
+</div>
+<span class="text-lg font-bold font-headline text-on-surface tabular-nums">₹7,501</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-high/30 rounded-xl flex justify-center">
+<p class="text-xs font-bold font-label tracking-widest text-outline uppercase">Total Wants: ₹12,400</p>
+</div>
+</section>
+<!-- Aura Intelligence Chip -->
+<div class="bg-secondary-container/20 border border-secondary-container/40 p-4 rounded-2xl flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<div>
+<p class="text-xs font-bold font-label tracking-widest text-primary uppercase mb-1">Aura Insight</p>
+<p class="text-sm font-body text-on-surface-variant leading-relaxed">Your 'Wants' are up by 12% this week. Cutting back on dining could save you ₹3,000 for your "Japan Trip" goal.</p>
+</div>
+</div>
+</main>
+<!-- FAB: Floating Action Button -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 bg-gradient-to-br from-primary to-primary-container text-white px-6 py-4 rounded-full flex items-center gap-3 shadow-xl hover:scale-105 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined">add</span>
+<span class="font-bold font-label tracking-wider text-sm">Add Expense</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-[64px] bg-[#faf9f6]/90 dark:bg-stone-950/90 backdrop-blur-md flex justify-around items-center px-4 pb-safe z-50 shadow-[0_-4px_20px_rgba(27,28,26,0.04)] rounded-t-2xl">
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#3525cd] dark:text-[#4f46e5] scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Expenses</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600">
+<span class="material-symbols-outlined">ads_click</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Goals</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">History</span>
+</div>
+</nav>
+</body></html>
